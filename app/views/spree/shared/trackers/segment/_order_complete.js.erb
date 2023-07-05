@@ -16,7 +16,10 @@
       if (typeof analytics !== 'undefined') {
           analytics.track('Order Completed',
             <%= order_json.html_safe %>,
-            { email: (!!getUserCookie('user_email') ? getUserCookie('user_email') : '') },
+              { 
+              email: (!!getUserCookie('user_email') ? getUserCookie('user_email') : ''),
+              stores: ["<%= @order.stock_locations.map { |stock_location| stock_location.name }.join(', ') %>"] 
+              },
             { integrations: { Friendbuy: { newCustomer: <%= @order.user&.orders&.complete&.count == 1  %> }} });
       }
   </script>

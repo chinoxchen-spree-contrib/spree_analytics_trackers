@@ -2,8 +2,11 @@
   <script>
       if (typeof analytics !== 'undefined') {
         var segmentCartJson = {
-          cart_id: '<%= @order.number %>'
+          cartNumber: '<%= @order.number %>'
         }
+        analytics.identify({
+          lastCartViewed: '<%= @order.number %>'
+        });
         analytics.track('Cart Viewed', segmentCartJson);
       }
   </script>

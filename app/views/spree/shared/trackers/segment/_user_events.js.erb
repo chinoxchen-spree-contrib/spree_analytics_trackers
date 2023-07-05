@@ -23,13 +23,15 @@
       };
 
       function signOutEvent() {
-        analytics.track('Signed Out');
+        analytics.track('Signed Out', {
+          email: analytics.user().traits().email
+        });
       };
 
       function repeatOrderEvent(order) {
         analytics.track('Order repeated', {
           id: order.id,
-          number: order.number
+          cartNumber: order.number
         });
       };
 
