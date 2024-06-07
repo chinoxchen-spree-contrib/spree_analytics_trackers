@@ -34,8 +34,9 @@ function fbAddToCart(variant, currency) {
 
 function segmentAddtoCart(variant, quantity, cartNumber) {
   analytics.track('Product Added', {
-    cart_id: cartNumber,
-    product_id: variant.id,
+    cartNumber: cartNumber,
+    variant_id: variant.id,
+    ean: variant.ean,
     sku: variant.sku,
     category: variant.category,
     name: variant.name,
