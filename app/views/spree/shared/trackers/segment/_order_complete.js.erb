@@ -1,4 +1,4 @@
-<% if segment_enabled? && @order.present? && order_just_completed?(@order) %>
+<% if segment_enabled? && @order.present? && @order.created_at >= 1.minute.ago %>
   <% order_json = SpreeAnalyticsTrackers::Segment::OrderPresenter.new(@order).to_json %>
   <script>
       window['friendbuy'] = window['friendbuy'] || [];

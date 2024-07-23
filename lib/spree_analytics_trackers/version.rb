@@ -10,7 +10,7 @@ module SpreeAnalyticsTrackers
   module VERSION
     MAJOR = 2
     MINOR = 6
-    TINY  = 13
+    TINY  = 14
 
     STRING = [MAJOR, MINOR, TINY].compact.join('.')
   end
